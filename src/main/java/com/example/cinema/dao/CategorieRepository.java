@@ -1,9 +1,9 @@
-package dao;
+package com.example.cinema.dao;
 
-import entities.Categorie;
+import com.example.cinema.entities.Categorie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-//@RepositoryRestResource
+@RepositoryRestResource
 public interface CategorieRepository extends JpaRepository<Categorie,Long> {
 }

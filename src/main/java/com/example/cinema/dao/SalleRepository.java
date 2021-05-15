@@ -1,9 +1,9 @@
-package dao;
+package com.example.cinema.dao;
 
-import entities.Salle;
+import com.example.cinema.entities.Salle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-//@RepositoryRestResource
+@RepositoryRestResource
 public interface SalleRepository extends JpaRepository<Salle,Long> {
 }

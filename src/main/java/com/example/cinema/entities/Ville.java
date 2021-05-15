@@ -1,4 +1,4 @@
-package entities;
+package com.example.cinema.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -6,13 +6,15 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.Collection;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class Seance {
+public class Ville {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date heureDebut;
+    private String name;
+    private double longtitude,latidude,altitude;
+    @OneToMany(mappedBy = "ville")
+    private Collection<Cinema> cinemas;
 }

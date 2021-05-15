@@ -1,5 +1,6 @@
-package entities;
+package com.example.cinema.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,11 +11,16 @@ import java.util.Collection;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
-public class Ville {
+public class Place {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private int numero;
     private double longtitude,latidude,altitude;
-    @OneToMany(mappedBy = "ville")
-    private Collection<Cinema> cinemas;
+    @ManyToOne
+    private Salle salle;
+    @OneToMany(mappedBy = "place")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<Ticket> tickets;
+
+
 }
